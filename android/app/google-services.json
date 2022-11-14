@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "372560414393",
+    "firebase_url": "https://political-sb-default-rtdb.firebaseio.com",
+    "project_id": "political-sb",
+    "storage_bucket": "political-sb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372560414393:android:ff7deaebbf0921cab2fd68",
+        "android_client_info": {
+          "package_name": "com.fislam.political"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372560414393-rhsflga7d3pcm56mghpaafhpc2k6mguk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBezUwcaqQUqAMuZwxcbnGNblFVBE99bpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372560414393-rhsflga7d3pcm56mghpaafhpc2k6mguk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
