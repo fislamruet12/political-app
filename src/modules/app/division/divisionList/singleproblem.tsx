@@ -31,7 +31,7 @@ const SingleProblem = ({
   //console.log(dinfo)
   return (
     <TouchableOpacity
-      style={{ marginHorizontal: 6 }}
+      style={{ marginHorizontal: 6 ,width:width-20}}
       activeOpacity={0.4}
       onPress={() => Login(dinfo)}
     >

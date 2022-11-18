@@ -13,3 +13,6 @@ export const firebaseConfig = {
   appId: "1:372560414393:web:90cd67ce9d583386b2fd68",
   measurementId: "G-WGSPGG4WN0"
 };
+
+export const DbVersion="POLVERSION_1"
+export const ParVersion="PARVERSION_1"

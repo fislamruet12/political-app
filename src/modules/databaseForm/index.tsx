@@ -4,7 +4,6 @@ import { FORM_NAVIGATION } from "../../../typings/navigation";
 
 import FormHomeScreen from "./home";
 import DivisionHomeScreen from "./divisionHome";
-import SendPartyInfoScreen from "../app/device/sendDeviceInfo";
 import AccessInScreen from "./access";
 
 const Stack = createNativeStackNavigator();
@@ -32,15 +31,7 @@ const FormMainNavigation = ({ navigation }: any) => (
         // ),
       }}  name={FORM_NAVIGATION.DIVISIONHOME} component={DivisionHomeScreen} />
  
- <Stack.Screen options={{
-        headerShown: true,
-        title: "PARTY INPUT",
-        headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 14 },
-        // headerRight: () => (
-        //   <RightIcon navigation={navigation} />
-        // ),
-      }}  name={FORM_NAVIGATION.PARTYINPUT} component={SendPartyInfoScreen} />
- <Stack.Screen options={{
+  <Stack.Screen options={{
         headerShown: true,
         title: "Access",
         headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 14 },

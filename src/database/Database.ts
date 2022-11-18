@@ -5,49 +5,16 @@ import { AccessInData, DeviceInfoType, HelperType, PersonTyp, ProblemRequestType
 import { User } from '../../typings/structures';
 import { SignInData } from '../../typings/form-data';
 
-import { firebaseConfig } from "../config";
+import { DbVersion, firebaseConfig } from "../config";
 import { store } from '../state';
-import { RankData, sectionName } from '../utils/dataObj';
 import actions from '../state/actions';
 import { encryptPassword } from '../utils/encrypt';
 
 export const SbProblem = () => {
+ 
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-};
-
-export const setUpdateDeviceInfo = (deviceInfo: DeviceInfoType) => {
-  SbProblem()
-  let ref = database()
-    .ref('sbproblem')
-    .child('device')
-    .child(deviceInfo.deviceIdentityNumber)
-  return new Promise((resolve, reject) => {
-
-    ref.once('value', snapshot => {
-      if (snapshot.exists()) {
-        console.log('exists')
-        reject({
-          error: true
-        })
-      } else {
-        ref.set(deviceInfo, (error) => {
-          if (error) {
-            reject({
-              error: true
-            })
-          } else {
-            resolve({
-              error: false
-            })
-          }
-        })
-      }
-    })
-
-  })
-
 };
 
 
@@ -187,10 +154,10 @@ export const getDistrictPartyInfo = (person: any) => {
   SbProblem()
   const {id,division_id}=person
   let ref = database()
-    .ref('political')
+    .ref(DbVersion)
     .child('person')
-    .child(division_id.toString())
-    .child(id.toString())
+    .child("_"+division_id.toString())
+    .child("_"+id.toString())
     
     return new Promise((resolve, reject) => {
       ref.once('value', snapshot => {

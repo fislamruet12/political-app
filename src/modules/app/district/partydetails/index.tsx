@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Text } from "native-base";
+import { Box, Button, Center, CheckIcon, Select, Text } from "native-base";
 
 import { FlatList } from "react-native-gesture-handler";
 import { Alert, Linking } from "react-native";
@@ -8,15 +8,18 @@ import { height, width } from "../../../../utils/handy";
 import { getDistrictPartyInfo } from "../../../../database/Database";
 import { partyNameObj } from "../../../databaseForm/utils/partyName";
 import { designationObj } from "../../../databaseForm/utils/podobi";
-import { partyObjToArr } from "../../../databaseForm/utils/functions";
+import { partyObjToArr, queryParOrg, queryParOrgSn } from "../../../databaseForm/utils/functions";
 import { APP_NAVIGATION } from "../../../../../typings/navigation";
+import { partyName } from "../../../databaseForm/utils/partyName";
+import { positionObj } from "../../../databaseForm/utils/position";
 
 const PartyDetailsScreen = (props: any) => {
   const info = props.route.params;
+  const [service, setService] = React.useState("1");
   const [loading, setLoading] = useState(false);
   const [partydetails, setpartydetails] = useState({});
   props.navigation.setOptions({
-    title:  info.bn_name 
+    title: info.bn_name,
   });
   useEffect(() => {
     getDistrictPartyInfo(info).then((res) => {
@@ -32,33 +35,23 @@ const PartyDetailsScreen = (props: any) => {
         ]);
       } else {
         setpartydetails(res?.data);
+     
       }
     });
   }, []);
 
   const renderItem = ({ item, index }: { item: any; index: string }) => {
-    let dinfo = item;
-    let prtInfo = partydetails[item];
-    console.log(prtInfo);
-    if (!prtInfo) return;
-    let partyId = prtInfo[Object.keys(prtInfo)[0]].partyId;
+   let single=partydetails["_"+service]
+    let prtInfo = single[item]
+
+     console.log('item',prtInfo,item);
 
     return (
       <Box marginX={1}>
         <Box bg="black" marginTop={1} roundedTop="md" padding={3}>
           <Box borderBottomColor={"coolGray.200"} borderBottomWidth={1} mb={2}>
             <Box flexDirection={"row"} alignItems="center">
-              {/* <Box>
-                <Text
-                  fontFamily={"Montserrat-Bold"}
-                  fontSize={14}
-                  mr={2}
-                  underline
-                  color="white"
-                >
-                  {parseInt(item) + 1}.
-                </Text>
-              </Box> */}
+            
               <Box>
                 <Text
                   fontFamily={"Montserrat-Bold"}
@@ -68,7 +61,7 @@ const PartyDetailsScreen = (props: any) => {
                   numberOfLines={1}
                   maxW={width * 0.8}
                 >
-                  {partyNameObj[partyId]?.name}
+                  {queryParOrgSn(item.substring(1))}
                 </Text>
               </Box>
             </Box>
@@ -86,12 +79,12 @@ const PartyDetailsScreen = (props: any) => {
                 <Box>
                   <Box>
                     <Text
-                      maxWidth={240}
+                      maxWidth={width - 10}
                       fontFamily={"Montserrat-Medium"}
                       fontSize={14}
                       color={"white"}
                     >
-                      {designationObj[index?.podobi]?.name} : {index.name}
+                      {designationObj[index?.podobi]?.name} {index.status===0?null:"( "+positionObj[index?.status].bn_name+" )"} : {index.name}
                     </Text>
                     <Text
                       maxWidth={220}
@@ -129,8 +122,7 @@ const PartyDetailsScreen = (props: any) => {
                   bg={"coolGray.600"}
                   marginLeft={2}
                   onPress={() =>
-                     Linking.openURL(`tel:+88${index?.contact_number}`)
-                   
+                    Linking.openURL(`tel:+88${index?.contact_number}`)
                   }
                   size={"sm"}
                   _text={{
@@ -141,7 +133,7 @@ const PartyDetailsScreen = (props: any) => {
                 >
                   কল করুন
                 </Button>
-                
+
                 <Button
                   alignSelf={"center"}
                   bg={"coolGray.600"}
@@ -166,11 +158,36 @@ const PartyDetailsScreen = (props: any) => {
       </Box>
     );
   };
-
+console.log(partydetails)
   return (
     <Box bg="coolGray.600" flex={1}>
+      <Center>
+        <Box>
+          <Select
+            selectedValue={service}
+            minWidth={width - 20}
+            accessibilityLabel="Choose Service"
+            placeholder="Choose party"
+            _selectedItem={{
+              bg: "teal.600",
+              endIcon: <CheckIcon size="5" />,
+            }}
+            mt={1}
+            defaultValue={service}
+            onValueChange={(itemValue) => setService(itemValue)}
+          >
+            {partyName.map((value) => (
+              <Select.Item
+                key={value.id}
+                label={value.bn_name}
+                value={value.id.toString()}
+              />
+            ))}
+          </Select>
+        </Box>
+      </Center>
       <FlatList
-        data={Object.keys(partydetails)}
+        data={Object.keys(partydetails==={}?{}:partydetails["_"+service]?partydetails["_"+service]:{})}
         renderItem={renderItem}
         ListEmptyComponent={
           <Box marginTop={height / 2}>

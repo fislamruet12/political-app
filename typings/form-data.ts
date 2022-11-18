@@ -79,6 +79,7 @@ export type PersonTyp={
   districtId:number;
   partyId:number;
   podobi:number;
+  organ:number;
   name:string;
   contact_number:string
   fatherName:string;
