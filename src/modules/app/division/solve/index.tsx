@@ -345,7 +345,7 @@ const SolverInputScreen = (props: any) => {
                   />
                 </InputGroup>
                 <FormControl.ErrorMessage
-                  _text={{ fontFamily: "Montserrat-SemiBold" }}
+                  _text={{ fontFamily: "Montserrat-Bold" }}
                   marginLeft={1}
                 >
                   {formik.errors.phone}

@@ -16,7 +16,7 @@ const FormHomeScreen = (props) => {
           bg={"gray.300"}
           width={width / 2}
           // borderTopLeftRadius={"full"}
-          onPress={() => props.navigation.navigate(FORM_NAVIGATION.DIVISIONHOME)}
+          // onPress={() => props.navigation.navigate(FORM_NAVIGATION.DIVISIONHOME)}
           size="lg"
           _text={{
             fontFamily: "Montserrat-Bold",
@@ -70,7 +70,7 @@ const FormHomeScreen = (props) => {
             color: "red.900",
           }}
         >
-         ACCESS
+       প্রবেশাধিকার
         </Button>
       </Box>
     }

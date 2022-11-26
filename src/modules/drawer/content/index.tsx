@@ -8,6 +8,7 @@ import {useSelector} from 'react-redux';
 import {icons} from '../../../assets/icons';
 import {RootState} from '../../../state/reducer';
 import { User } from '../../../../typings/structures';
+import RightIcon from '../../../component/rightIcon';
 const ContentDrawerScreen = (props: any) => {
   let dispatch = useDispatch();
   const user = useSelector(
@@ -33,7 +34,7 @@ const ContentDrawerScreen = (props: any) => {
            <Image source={icons.user} style={{width: 30, height: 30}} />
          </View> */}
                 <View>
-                  <Text fontFamily={'Montserrat-SemiBold'} fontSize={20}>
+                  <Text fontFamily={'Montserrat-Bold'} fontSize={20}>
                     {user?.name}
                   </Text>
                   <Text fontFamily={'Montserrat-Regular'}>
@@ -98,7 +99,11 @@ const ContentDrawerScreen = (props: any) => {
             </Text>
           </View>
         </View> */}
+        <View>
+        <RightIcon navigation={props.navigation} />
+        </View>
       </View>
+
     </DrawerContentScrollView>
   );
 };

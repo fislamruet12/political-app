@@ -18,6 +18,9 @@
 		5F7DCAB7159549F5882F49D6 /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBF55E85809B4C5F9B070364 /* MontserratAlternates-Regular.ttf */; };
 		61551B822B074FFFAE0B8E74 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 611F3AE2A3C74697BEF6D671 /* Montserrat-Regular.ttf */; };
 		6664CE2C8BA640959BB7987E /* MontserratAlternates-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41E8EAFC03B5448BA0A1E639 /* MontserratAlternates-Black.ttf */; };
+		75421B542930B7C9005399AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75421B532930B7C9005399AD /* GoogleService-Info.plist */; };
+		75F1738529320DCC00D3637A /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F1738429320DCC00D3637A /* AuthenticationServices.framework */; };
+		75F1738C293212F200D3637A /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F1738B293212F200D3637A /* ExternalAccessory.framework */; };
 		7699B88040F8A987B510C191 /* libPods-Donate-DonateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Donate-DonateTests.a */; };
 		7DE4F30275224D849CC9D8D6 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6343FE1C8C94DAE9C61A8B8 /* RobotoCondensed-Bold.ttf */; };
 		7F622664CA80498F8F3339D1 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 532A34888E41461EBC9CC996 /* Montserrat-Black.ttf */; };
@@ -63,6 +66,13 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Donate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Donate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1EA2E6DA3E4C2C9A79A14F /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../src/assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		611F3AE2A3C74697BEF6D671 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		75421B532930B7C9005399AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Donate/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75421BAA2930C3F6005399AD /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../alquran/src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		75421E61293105E4005399AD /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		75F1738329320D9000D3637A /* Donate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Donate.entitlements; path = Donate/Donate.entitlements; sourceTree = "<group>"; };
+		75F1738429320DCC00D3637A /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		75F1738829320ED700D3637A /* DonateRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DonateRelease.entitlements; path = Donate/DonateRelease.entitlements; sourceTree = "<group>"; };
+		75F1738B293212F200D3637A /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Donate/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Donate-DonateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donate-DonateTests.release.xcconfig"; path = "Target Support Files/Pods-Donate-DonateTests/Pods-Donate-DonateTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1F90B38539C4D1884A6DCEC /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoCondensed-Regular.ttf"; path = "../src/assets/fonts/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
@@ -85,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F1738C293212F200D3637A /* ExternalAccessory.framework in Frameworks */,
+				75F1738529320DCC00D3637A /* AuthenticationServices.framework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-Donate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,10 +124,13 @@
 		13B07FAE1A68108700A75B9A /* Donate */ = {
 			isa = PBXGroup;
 			children = (
+				75F1738829320ED700D3637A /* DonateRelease.entitlements */,
+				75F1738329320D9000D3637A /* Donate.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				75421B532930B7C9005399AD /* GoogleService-Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -125,6 +140,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75F1738B293212F200D3637A /* ExternalAccessory.framework */,
+				75F1738429320DCC00D3637A /* AuthenticationServices.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-Donate.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Donate-DonateTests.a */,
@@ -140,7 +157,9 @@
 				202A49EBE71D483CBBDCCEA1 /* MontserratAlternates-Medium.ttf */,
 				BBF55E85809B4C5F9B070364 /* MontserratAlternates-Regular.ttf */,
 				B6343FE1C8C94DAE9C61A8B8 /* RobotoCondensed-Bold.ttf */,
+				75421E61293105E4005399AD /* Montserrat-SemiBold.ttf */,
 				A427877E9BAE4632AF5C7C1A /* RobotoCondensed-Light.ttf */,
+				75421BAA2930C3F6005399AD /* Montserrat-SemiBold.ttf */,
 				A1F90B38539C4D1884A6DCEC /* RobotoCondensed-Regular.ttf */,
 				532A34888E41461EBC9CC996 /* Montserrat-Black.ttf */,
 				0FF4C6C177B34CDF93E5B346 /* Montserrat-Bold.ttf */,
@@ -299,6 +318,7 @@
 				7DE4F30275224D849CC9D8D6 /* RobotoCondensed-Bold.ttf in Resources */,
 				5D7EF7E27A7F48B797E66AA8 /* RobotoCondensed-Light.ttf in Resources */,
 				F1448FC19D4A474F8890ACAE /* RobotoCondensed-Regular.ttf in Resources */,
+				75421B542930B7C9005399AD /* GoogleService-Info.plist in Resources */,
 				7F622664CA80498F8F3339D1 /* Montserrat-Black.ttf in Resources */,
 				0C78CD537C574B3FAC447CC2 /* Montserrat-Bold.ttf in Resources */,
 				40D9D746EDC64C4BA4D0B329 /* Montserrat-ExtraBold.ttf in Resources */,
@@ -557,7 +577,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Donate/Donate.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Donate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,7 +591,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fislam.political;
+				PRODUCT_BUNDLE_IDENTIFIER = org.fislam.political;
 				PRODUCT_NAME = Donate;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -583,7 +605,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Donate/DonateRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M3DU3N6MTS;
 				INFOPLIST_FILE = Donate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,8 +620,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fislam.political;
+				PRODUCT_BUNDLE_IDENTIFIER = org.fislam.political;
 				PRODUCT_NAME = Donate;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

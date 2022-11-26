@@ -1,11 +1,16 @@
-import { Box, Text } from "native-base"
-import React from "react"
+import { Box, Text } from "native-base";
+import React from "react";
 
-const ParlamenMembertList=()=>{
-    return(
-        <Box>
-            <Text>Parlament</Text>
-        </Box>
-    )
-}
-export default ParlamenMembertList
+const ParlamenMembertList = (props:any) => {
+  return (
+    <Box
+      bg={"coolGray.600"}
+      flex={1}
+      justifyContent="center"
+      alignItems={"center"}
+    >
+      <Text>Under Developing..</Text>
+    </Box>
+  );
+};
+export default ParlamenMembertList;

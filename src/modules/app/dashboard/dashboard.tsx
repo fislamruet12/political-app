@@ -68,19 +68,21 @@ const LandingScreen = (props: any) => {
       alignItems={"center"}
       bg={"coolGray.600"}
     >
-      <HStack
-        space={3}
-        flexWrap="wrap"
-        justifyContent="center"
-        alignItems={"center"}
-      >
+      <HStack flexWrap="wrap" justifyContent="center" alignItems={"center"}>
         {mainZone.map((value) => (
           <Pressable
             marginTop={5}
             key={value.id}
+            margin={1}
             onPress={() => Login(APP_NAVIGATION.PROBLEM, value)}
           >
-            <Center height={40} width={40} rounded="md" shadow={3}>
+            <Center
+              height={40}
+              width={40}
+              rounded="md"
+              shadow={3}
+              bg={"coolGray.700"}
+            >
               <Image source={value.icon} style={{ width: 40, height: 40 }} />
 
               <Text color={"white"} fontFamily="Montserrat-Bold" fontSize={16}>
@@ -91,9 +93,16 @@ const LandingScreen = (props: any) => {
         ))}
         <Pressable
           marginTop={5}
+          margin={1}
           onPress={() => Login(PARLAMENT_NAVIGATION.PARLAMENT, {})}
         >
-          <Center height={40} width={40} rounded="md" shadow={3}>
+          <Center
+            height={40}
+            width={40}
+            rounded="md"
+            shadow={3}
+            bg={"coolGray.700"}
+          >
             <Image source={icons.assemble} style={{ width: 40, height: 40 }} />
 
             <Text color={"white"} fontFamily="Montserrat-Bold" fontSize={16}>

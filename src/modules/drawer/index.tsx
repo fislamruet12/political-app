@@ -27,9 +27,9 @@ const DrawerScreen = ({navigation}:any) => {
           headerShown: true,
           title: "DASHBOARD",
           headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 16 },
-          headerRight: () => (
-            <RightIcon navigation={navigation} />
-          ),
+          // headerRight: () => (
+          //   <RightIcon navigation={navigation} />
+          // ),
         }}
         name={APP_NAVIGATION.LANDING}
         component={LandingScreen}
