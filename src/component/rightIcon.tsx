@@ -30,8 +30,7 @@ const RightIcon = ({ navigation }: any) => {
             flexDirection={"row"}
             justifyContent={"space-between"}
             marginX={3}
-            alignItems="center"
-            backgroundColor={'gray.200'}
+           
             padding={1}
           >
             <Text fontSize={16} fontFamily={'Montserrat-Bold'}>ADMIN</Text>
@@ -49,10 +48,11 @@ const RightIcon = ({ navigation }: any) => {
           flexDirection={"row"}
           justifyContent={"space-between"}
           marginX={3}
-          alignItems="center"
+         borderTopColor="gray.500"
+         borderTopWidth={.2}
           padding={1}
           marginTop={1}
-          backgroundColor={'gray.200'}
+         
         >
             <Text fontSize={16} fontFamily={'Montserrat-Bold'}>LOGOUT</Text>
          

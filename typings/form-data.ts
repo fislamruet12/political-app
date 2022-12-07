@@ -91,3 +91,21 @@ export type PersonTyp={
   active:number;
  
 }
+
+
+export type MemberType={
+  zone:number,
+  parlament_seat:number;
+  divisionId: number;
+  districtId:number;
+  districtOrder:number;
+  partyId:number;
+  elakaName:string
+  name:string;
+  contact_number:string
+  nid:string;
+  createDate:number;
+  active:number;
+
+ 
+}

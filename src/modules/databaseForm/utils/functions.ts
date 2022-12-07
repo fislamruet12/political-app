@@ -40,3 +40,8 @@ export const queryDivlist = (zoneId: string) => {
   const div = divisions.filter((item) => item.main_id === zoneId);
   return div;
 };
+
+export const querysingleDistrict = (districtId: string) => {
+  const Org = districts.find((item) => item.id === districtId);
+  return Org?.bn_name;
+};
