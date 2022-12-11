@@ -4,7 +4,9 @@
 export enum ROOT_NAVIGATION {
   APP = 'APP',
   AUTH = 'AUTH',
-  FORM='FORM'
+  FORM='FORM',
+  DRAWER='DRAWER',
+  ROOT='ROOT'
 }
 
 export type RootNavigationParams = {
@@ -93,4 +95,13 @@ export type FormNavigation={
   [FORM_NAVIGATION.MOHANOGORHOME]:undefined;
   [FORM_NAVIGATION.PARTYINPUT]:undefined;
   [FORM_NAVIGATION.ACCESS]:undefined;
+}
+
+
+export enum PARLAMENT_NAVIGATION{
+  PARLAMENT='PARLAMENT'
+}
+
+export type ParlamentNavigation={
+  [PARLAMENT_NAVIGATION.PARLAMENT]:undefined;
 }

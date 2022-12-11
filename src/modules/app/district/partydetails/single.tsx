@@ -10,80 +10,13 @@ import { getDistrictPartyInfo } from "../../../../database/Database";
 import { PersonTyp } from "../../../../../typings/form-data";
 import { partyNameObj } from "../../../databaseForm/utils/partyName";
 import { designationObj } from "../../../databaseForm/utils/podobi";
+import { sin } from "react-native-reanimated";
+import { queryParOrgSn } from "../../../databaseForm/utils/functions";
 
 const PartySingleScreen = (props: any) => {
   const single = props.route.params as PersonTyp;
   console.log(single);
-  const renderItem = ({ item, index }: { item: any; index: string }) => {
-    return (
-      <Box marginX={1}>
-        <Box bg="black" roundedTop="md" padding={3}>
-          <Box borderBottomColor={"coolGray.200"} borderBottomWidth={1} mb={2}>
-            <Box flexDirection={"row"} alignItems="center">
-              <Box>
-                <Text
-                  fontFamily={"Montserrat-Bold"}
-                  fontSize={15}
-                  mr={2}
-                  color="white"
-                  numberOfLines={1}
-                  maxW={width * 0.8}
-                >
-                  {single.name}
-                </Text>
-              </Box>
-            </Box>
-          </Box>
-          <Box ml={2}>
-            <Box>
-              <Text
-                maxWidth={240}
-                fontFamily={"Montserrat-Medium"}
-                fontSize={16}
-                color={"white"}
-              >
-                দল : {partyNameObj[single?.partyId]?.name}
-              </Text>
-              <Text
-                maxWidth={240}
-                fontFamily={"Montserrat-Medium"}
-                fontSize={14}
-                color={"white"}
-              >
-                পদবি : {designationObj[single?.podobi]?.name}
-              </Text>
-              <Text
-                maxWidth={220}
-                fontFamily={"Montserrat-Medium"}
-                fontSize={14}
-                color={"white"}
-              >
-                মোবাইল : {single.contact_number}
-              </Text>
-              <Text
-                maxWidth={260}
-                fontFamily={"Montserrat-Medium"}
-                fontSize={14}
-                color={"white"}
-              >
-                বর্তমান ঠিকানা : {single.presentAddress}
-              </Text>
-              <Text
-                maxWidth={260}
-                fontFamily={"Montserrat-Medium"}
-                fontSize={14}
-                color={"white"}
-              >
-                স্থায়ী ঠিকানা: {single.parmanentAddress}
-              </Text>
-            </Box>
-          </Box>
-        </Box>
-
-        <Box height={0.3} bg="primary.800" roundedBottom={"full"} />
-      </Box>
-    );
-  };
+  
   return (
     <Box
       bg="coolGray.600"
@@ -100,18 +33,19 @@ const PartySingleScreen = (props: any) => {
           </Box>
         }
       /> */}
-       <Box marginX={1}>
+       <Box marginX={1}
+                  minW={width * 0.9}>
         <Box bg="black" roundedTop="md" padding={3}>
           <Box borderBottomColor={"coolGray.200"} borderBottomWidth={1} mb={2}>
             <Box flexDirection={"row"} alignItems="center">
               <Box>
                 <Text
                   fontFamily={"Montserrat-Bold"}
-                  fontSize={15}
+                  fontSize={17}
                   mr={2}
                   color="white"
                   numberOfLines={1}
-                  maxW={width * 0.8}
+                  
                 >
                   {single.name}
                 </Text>
@@ -126,7 +60,15 @@ const PartySingleScreen = (props: any) => {
                 fontSize={16}
                 color={"white"}
               >
-                দল : {partyNameObj[single?.partyId]?.name}
+                দল : {partyNameObj[single?.partyId]?.bn_name}
+              </Text>
+              <Text
+               
+                fontFamily={"Montserrat-Medium"}
+                fontSize={16}
+                color={"white"}
+              >
+                সংগঠন : {queryParOrgSn(single.organ)}
               </Text>
               <Text
                

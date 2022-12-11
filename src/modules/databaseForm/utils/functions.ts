@@ -1,4 +1,6 @@
 import { districts } from "./district"
+import { divisions } from "./division"
+import { partyRelatedOrg } from "./partyName"
 
 export const districtInfo = (divisionId: string) => {
 
@@ -15,7 +17,7 @@ export const singledistrictInfo = (divisionId: string) => {
 }
 
 
-export const partyObjToArr=(info)=>{
+export const partyObjToArr=(info:any)=>{
   let arr=[]
   for(let i in info){
     arr.push(info[i])
@@ -25,3 +27,21 @@ export const partyObjToArr=(info)=>{
   })
   return arr
 }
+
+export const queryParOrg = (partyId: number) => {
+  const Org = partyRelatedOrg.filter((item) => item.party_id === partyId);
+  return Org;
+};
+export const queryParOrgSn = (partyId: number) => {
+  const Org = partyRelatedOrg.find((item) => item.id === parseInt(partyId));
+  return Org?.bn_name;
+};
+export const queryDivlist = (zoneId: string) => {
+  const div = divisions.filter((item) => item.main_id === zoneId);
+  return div;
+};
+
+export const querysingleDistrict = (districtId: string) => {
+  const Org = districts.find((item) => item.id === districtId);
+  return Org?.bn_name;
+};

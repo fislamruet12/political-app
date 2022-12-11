@@ -79,6 +79,7 @@ export type PersonTyp={
   districtId:number;
   partyId:number;
   podobi:number;
+  organ:number;
   name:string;
   contact_number:string
   fatherName:string;
@@ -88,5 +89,23 @@ export type PersonTyp={
   parmanentAddress:string;
   createDate:number;
   active:number;
+ 
+}
+
+
+export type MemberType={
+  zone:number,
+  parlament_seat:number;
+  divisionId: number;
+  districtId:number;
+  districtOrder:number;
+  partyId:number;
+  elakaName:string
+  name:string;
+  contact_number:string
+  nid:string;
+  createDate:number;
+  active:number;
+
  
 }

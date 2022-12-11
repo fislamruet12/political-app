@@ -1,11 +1,15 @@
 import { Box, FlatList } from "native-base";
-import React, {  } from "react";
+import React from "react";
 import Loading from "../../../../component/loading";
-import { height } from "../../../../utils/handy";
+import { height, width } from "../../../../utils/handy";
 import SingleProblem from "./singleproblem";
 
-import { divisions } from "../../../databaseForm/utils/division";
+import { queryDivlist } from "../../../databaseForm/utils/functions";
 const ProblemListScreen = (props: any) => {
+  let zone = props.route.params.id;
+  props.navigation.setOptions({
+    title: props.route.params.bn_name,
+  });
 
   const renderItem = ({ item, index }: { item: any; index: string }) => {
     let dinfo = item;
@@ -18,10 +22,16 @@ const ProblemListScreen = (props: any) => {
     );
   };
 
+  const divisionlist = queryDivlist(zone.toString());
   return (
     <Box bg={"coolGray.600"} flex={1}>
       <FlatList
-        data={divisions}
+        contentContainerStyle={{
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+        }}
+        data={divisionlist}
         renderItem={renderItem}
         ListEmptyComponent={
           <Box marginTop={height / 2}>

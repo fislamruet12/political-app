@@ -7,6 +7,7 @@ import {
   Select,
   Text,
 } from "native-base";
+
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import React, { useState } from "react";
@@ -15,7 +16,6 @@ import { Alert, ScrollView } from "react-native";
 import { PersonTyp } from "../../../../../typings/form-data";
 import LinearGradient from "react-native-linear-gradient";
 import { divisions } from "../../../databaseForm/utils/division";
-import { districts } from "../../../databaseForm/utils/district";
 import { partyName } from "../../../databaseForm/utils/partyName";
 import { designation } from "../../../databaseForm/utils/podobi";
 import {
@@ -25,6 +25,7 @@ import {
 import { TouchableOpacity } from "react-native";
 import { setDistrictPartyInfo } from "../../../../database/Database";
 import { navigationScreen } from "../../../../utils/navigate";
+
 const SendPartyInfoScreen = (props: any) => {
   const [loading, setLoading] = useState(false);
   const [exp1, setexp1] = useState(true);
@@ -222,7 +223,7 @@ const SendPartyInfoScreen = (props: any) => {
                       <Select.Item
                         _text={{ fontFamily: "Montserrat-Regular" }}
                         key={item.id}
-                        label={item.name}
+                        label={item.bn_name}
                         value={item.id + ""}
                       />
                     ))}
@@ -314,7 +315,7 @@ const SendPartyInfoScreen = (props: any) => {
                       onBlur={formik.handleBlur("name")}
                     />
                     <FormControl.ErrorMessage
-                      _text={{ fontFamily: "Montserrat-SemiBold" }}
+                      _text={{ fontFamily: "Montserrat-Bold" }}
                       marginLeft={1}
                     >
                       {formik.errors.name}
@@ -344,7 +345,7 @@ const SendPartyInfoScreen = (props: any) => {
                       onBlur={formik.handleBlur("contact_number")}
                     />
                     <FormControl.ErrorMessage
-                      _text={{ fontFamily: "Montserrat-SemiBold" }}
+                      _text={{ fontFamily: "Montserrat-Regular" }}
                       marginLeft={1}
                     >
                       {formik.errors.contact_number}
@@ -372,7 +373,7 @@ const SendPartyInfoScreen = (props: any) => {
                       onBlur={formik.handleBlur("fatherName")}
                     />
                     <FormControl.ErrorMessage
-                      _text={{ fontFamily: "Montserrat-SemiBold" }}
+                      _text={{ fontFamily: "Montserrat-Regular" }}
                       marginLeft={1}
                     >
                       {formik.errors.fatherName}
@@ -400,7 +401,7 @@ const SendPartyInfoScreen = (props: any) => {
                       onBlur={formik.handleBlur("motherName")}
                     />
                     <FormControl.ErrorMessage
-                      _text={{ fontFamily: "Montserrat-SemiBold" }}
+                      _text={{ fontFamily: "Montserrat-Regular" }}
                       marginLeft={1}
                     >
                       {formik.errors.motherName}
@@ -426,7 +427,7 @@ const SendPartyInfoScreen = (props: any) => {
                       onBlur={formik.handleBlur("nid")}
                     />
                     <FormControl.ErrorMessage
-                      _text={{ fontFamily: "Montserrat-SemiBold" }}
+                      _text={{ fontFamily: "Montserrat-Regular" }}
                       marginLeft={1}
                     >
                       {formik.errors.nid}
@@ -470,7 +471,7 @@ const SendPartyInfoScreen = (props: any) => {
               onBlur={formik.handleBlur("presentAddress")}
             />
             <FormControl.ErrorMessage
-              _text={{ fontFamily: "Montserrat-SemiBold" }}
+              _text={{ fontFamily: "Montserrat-Regular" }}
               marginLeft={1}
             >
               {formik.errors.presentAddress}
@@ -496,7 +497,7 @@ const SendPartyInfoScreen = (props: any) => {
               onBlur={formik.handleBlur("parmanentAddress")}
             />
             <FormControl.ErrorMessage
-              _text={{ fontFamily: "Montserrat-SemiBold" }}
+              _text={{ fontFamily: "Montserrat-Regular" }}
               marginLeft={1}
             >
               {formik.errors.parmanentAddress}
