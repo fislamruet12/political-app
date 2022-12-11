@@ -171,7 +171,8 @@ export const getParlamentInfo = (person: any) => {
     .ref(ParVersion)
     .child("member")
     .orderByChild("zone")
-    .equalTo(zone);
+    .equalTo(zone)
+   // .limitToFirst(20)
 
   return new Promise((resolve, reject) => {
     ref.once("value", (snapshot) => {
