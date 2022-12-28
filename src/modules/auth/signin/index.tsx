@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, Heading, Image, Input } from "native-base";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { icons } from "../../../assets/icons";
 import { PASSWORD_MIN_LENGTH } from "../../../config";
 import * as Yup from "yup";
@@ -11,10 +11,6 @@ import { GetUserInfo } from "../../../database/Database";
 import { Alert } from "react-native";
 import actions from "../../../state/actions";
 
-import { AddUser } from "../../../utils/adduser";
-import MsgScreen from "./msg";
-import Loading from "../../../component/loading";
-import { ROOT_NAVIGATION } from "../../../../typings/navigation";
 
 const SignInScreen = (props: any) => {
   const dispatch = useDispatch()

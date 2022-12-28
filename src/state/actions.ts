@@ -1,5 +1,5 @@
 import user from './user/actions';
-
+import member from './member/actions'
 export const LOG_OUT = 'LOG_OUT';
 
 export interface LogOutAction {
@@ -12,7 +12,7 @@ const logOut = (): LogOutAction => ({
 
 const actions = {
   user,
-  
+  member
 };
 
 export default actions;

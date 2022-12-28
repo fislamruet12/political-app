@@ -5,15 +5,18 @@ import {
   Select,
 } from "native-base";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { RecyclerListView } from "recyclerlistview";
 import { MemberType } from "../../../../typings/form-data";
 import Loading from "../../../component/loading";
 import { getParlamentInfo } from "../../../database/Database";
+import actions from "../../../state/actions";
 import { height, width } from "../../../utils/handy";
 import { dataProvider, _layoutProvider } from "../../../utils/listprops";
 import { mainZone } from "../../databaseForm/utils/division";
 import SingleMember from "./single";
 const ParlamenMembertList = (props: any) => {
+  const dispatch=useDispatch()
   const [data, setData] = useState([]);
   const [dataIntoProvider, setdataProvider] = useState<any>(
     dataProvider.cloneWithRows([]),
@@ -51,6 +54,9 @@ const ParlamenMembertList = (props: any) => {
 
   useEffect(() => {
     Parmlament_mem();
+    return ()=>{
+      dispatch(actions.member.removeMember())
+    }
   }, [zone])
 
   const renderItem = (type, data) => {
@@ -58,7 +64,8 @@ const ParlamenMembertList = (props: any) => {
  
       return (
         <SingleMember
-          mem={mem}
+          mems={mem}
+          navigation={props.navigation}
         />
       );
   };
