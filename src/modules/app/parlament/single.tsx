@@ -13,29 +13,10 @@ import { icons } from "../../../assets/icons"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../state/reducer"
 import Loading from "../../../component/loading"
-const SingleMember = ({ mems, navigation }) => {
+const SingleMember = ({ mem, navigation }) => {
   const toast = useToast();
   const user = useSelector((state: RootState) => state.currentUser.user);
-  const member = useSelector((state: RootState) => state.currentMember.member);
 
-  const [mem, setmem] = useState(null)
-  useEffect(() => {
-    if (member === null) {
-      setmem(mems)
-    } else {
-      if (mems.parlament_seat === member.parlament_seat) {
-        setmem(member)
-      } else {
-        setmem(mems)
-      }
-    }
-    return
-  }, [member])
-  if (mem === null)
-    return (
-      <Loading />
-    )
-   
   return (
     <Box>
       <Box bg="black" marginTop={2} marginX={1} roundedTop="md" padding={3}>
