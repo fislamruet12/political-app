@@ -47,7 +47,7 @@ const DashBoardScreen = (props: any) => {
             alignItems={"center"}
             padding={2}
           >
-            <Box mr={5}>
+            {/* <Box mr={5}>
               <Button
                 alignSelf={"center"}
                 bg={"coolGray.600"}
@@ -61,7 +61,7 @@ const DashBoardScreen = (props: any) => {
               >
                 উপজেলা সমূহ
               </Button>
-            </Box>
+            </Box> */}
             <Box>
               <Button
                 alignSelf={"center"}

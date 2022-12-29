@@ -224,3 +224,32 @@ export const UpdateParlamentInfo = (person: MemberType) => {
     });
   });
 };
+
+
+export const UpdateDistrictPartyInfo = (person: PersonTyp) => {
+  Political();
+ 
+  const { divisionId, districtId, partyId, organ,createDate } = person;
+  let ref = firebase
+    .database()
+    .ref(DbVersion)
+    .child("person")
+    .child("_"+divisionId.toString())
+    .child("_"+districtId.toString())
+    .child("_"+partyId.toString())
+    .child("_"+organ.toString())
+    .child(createDate.toString());
+  return new Promise((resolve, reject) => {
+    ref.set(person, (error: any) => {
+      if (error) {
+        reject({
+          error: true,
+        });
+      } else {
+        resolve({
+          error: false,
+        });
+      }
+    });
+  });
+};
