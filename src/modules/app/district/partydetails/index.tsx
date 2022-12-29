@@ -45,11 +45,11 @@ const PartyDetailsScreen = (props: any) => {
     });
   }
   useEffect(() => {
-  
+
     const unsubscribe = props.navigation.addListener('focus', () => {
       getComData()
     });
-   return unsubscribe;
+    return unsubscribe;
   }, []);
 
   const renderItem = ({ item, index }: { item: any; index: string }) => {
