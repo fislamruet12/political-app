@@ -18,7 +18,7 @@ const SingleMember = ({ mem, navigation }) => {
   const user = useSelector((state: RootState) => state.currentUser.user);
 
   return (
-    <Box>
+    <Box width={width}>
       <Box bg="black" marginTop={2} marginX={1} roundedTop="md" padding={3}>
         <Box borderBottomColor={"coolGray.200"} borderBottomWidth={1} mb={2}>
           <Box flexDirection={"row"} justifyContent='space-between' alignItems='center'>

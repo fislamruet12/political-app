@@ -172,6 +172,7 @@ const ParlamenMembertList = (props: any) => {
             layoutProvider={_layoutProvider}
             dataProvider={dataIntoProvider}
             rowRenderer={renderItem}
+            forceNonDeterministicRendering={true}
           />
       }
     </Box>

@@ -7,6 +7,7 @@ import { UpdateDistrictPartyInfo } from "../../../../database/Database";
 import { width } from "../../../../utils/handy";
 import { partyName } from "../../utils/partyName";
 import { designation, designationObj } from "../../utils/podobi";
+import { position, positionObj } from "../../utils/position";
 import { validationSchema } from "../../utils/validation";
 const EditComMem = (props: any) => {
     const singleCom = props.route.params
@@ -101,8 +102,54 @@ const EditComMem = (props: any) => {
                             color={"gray.900"}
                             padding={2}
                         >
-                            {designationObj[formik.values.podobi]?.name} {formik.values.status === 0 ? null : "( " + positionObj[formik.values.status].bn_name + " )"} : {}
+                            {designationObj[formik.values.podobi]?.name} {formik.values.status === 0 ? null : "( " + positionObj[formik.values.status].bn_name + " )"} : { }
                         </Text>
+                    </FormControl>
+                </Box>
+                <Box marginTop={2}>
+                    <FormControl
+                        isRequired
+                        isInvalid={
+                            formik.errors.districtId && formik.touched.districtId
+                        }
+                    >
+                        <FormControl.Label _text={{ fontFamily: "Montserrat-Bold" }}>
+                            অবস্থান
+                        </FormControl.Label>
+                        <Select
+                            bg={"white"}
+                            fontFamily={"Montserrat-Bold"}
+                            placeholder="অবস্থান"
+                            selectedValue={formik.values.status + ""}
+                            onValueChange={(itemValue: string) => {
+                                formik.setFieldValue("status", parseInt(itemValue));
+                            }}
+                            _selectedItem={{
+                                bg: "white",
+                                endIcon: <CheckIcon size={5} />,
+                            }}
+                        >
+                            <Select.Item
+                                _text={{ fontFamily: "Montserrat-Regular" }}
+                                key={0}
+                                label={'দায়িত্বরত'}
+                                value={"0"}
+                            />
+                            {position.map((item) => (
+                                <Select.Item
+                                    _text={{ fontFamily: "Montserrat-Regular" }}
+                                    key={item.id}
+                                    label={item.bn_name}
+                                    value={item.id.toString()}
+                                />
+                            ))}
+                        </Select>
+                        <FormControl.ErrorMessage
+                            _text={{ fontFamily: "Montserrat-Bold" }}
+                            marginLeft={1}
+                        >
+                            {formik.errors.status}
+                        </FormControl.ErrorMessage>
                     </FormControl>
                 </Box>
                 <Box marginTop={2}>
@@ -162,7 +209,46 @@ const EditComMem = (props: any) => {
                         </FormControl.ErrorMessage>
                     </FormControl>
                 </Box>
-
+                <Box marginTop={2}>
+                  <FormControl
+                  
+                  >
+                    <FormControl.Label
+                      _text={{ fontFamily: "Montserrat-Bold" }}
+                    >
+                    বর্তমান ঠিকানা
+                    </FormControl.Label>
+                    <Input
+                      bg={"white"}
+                      fontFamily={"Montserrat-Bold"}
+                      placeholder="বর্তমান ঠিকানা"
+                      value={formik.values.presentAddress}
+                      onChangeText={formik.handleChange("presentAddress")}
+                      onBlur={formik.handleBlur("presentAddress")}
+                    />
+                  
+                  </FormControl>
+                </Box>
+                <Box marginTop={2}>
+                  <FormControl
+                  
+                  >
+                    <FormControl.Label
+                      _text={{ fontFamily: "Montserrat-Bold" }}
+                    >
+                    স্থায়ী ঠিকানা
+                    </FormControl.Label>
+                    <Input
+                      bg={"white"}
+                      fontFamily={"Montserrat-Bold"}
+                      placeholder="স্থায়ী ঠিকানা"
+                      value={formik.values.parmanentAddress}
+                      onChangeText={formik.handleChange("parmanentAddress")}
+                      onBlur={formik.handleBlur("parmanentAddress")}
+                    />
+                  
+                  </FormControl>
+                </Box>
                 <Box marginBottom={5}>
                     <Button
                         bg={"red.300"}

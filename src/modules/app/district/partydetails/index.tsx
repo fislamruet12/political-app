@@ -184,7 +184,7 @@ const PartyDetailsScreen = (props: any) => {
       </Box>
     );
   };
-  console.log(partydetails)
+ // console.log(partydetails)
   return (
     <Box bg="coolGray.600" flex={1}>
       <Center>
