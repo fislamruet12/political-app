@@ -1,6 +1,6 @@
 import database from "@react-native-firebase/database";
 import { firebase } from "@react-native-firebase/database";
-import { AccessInData, PersonTyp } from "../../typings/form-data";
+import { AccessInData, MemberType, PersonTyp } from "../../typings/form-data";
 import { User } from "../../typings/structures";
 import { SignInData } from "../../typings/form-data";
 
@@ -171,7 +171,8 @@ export const getParlamentInfo = (person: any) => {
     .ref(ParVersion)
     .child("member")
     .orderByChild("zone")
-    .equalTo(zone);
+    .equalTo(zone)
+  // .limitToFirst(20)
 
   return new Promise((resolve, reject) => {
     ref.once("value", (snapshot) => {
@@ -185,8 +186,8 @@ export const getParlamentInfo = (person: any) => {
         resolve({
           error: false,
           msg: "Successfully get data",
-          data: arr.sort((a,b)=> {
-            return a.parlament_seat-b.parlament_seat
+          data: arr.sort((a, b) => {
+            return a.parlament_seat - b.parlament_seat
           }),
         });
       } else {
@@ -194,6 +195,59 @@ export const getParlamentInfo = (person: any) => {
           error: true,
           msg: "Data is not found",
           data: null,
+        });
+      }
+    });
+  });
+};
+
+
+export const UpdateParlamentInfo = (person: MemberType) => {
+  Political();
+  const { parlament_seat } = person;
+  let ref = firebase
+    .database()
+    .ref(ParVersion)
+    .child("member")
+    .child("_" + parlament_seat.toString());
+  return new Promise((resolve, reject) => {
+    ref.set(person, (error: any) => {
+      if (error) {
+        reject({
+          error: true,
+        });
+      } else {
+        resolve({
+          error: false,
+        });
+      }
+    });
+  });
+};
+
+
+export const UpdateDistrictPartyInfo = (person: PersonTyp) => {
+  Political();
+ 
+  const { divisionId, districtId, partyId, organ,createDate } = person;
+  let ref = firebase
+    .database()
+    .ref(DbVersion)
+    .child("person")
+    .child("_"+divisionId.toString())
+    .child("_"+districtId.toString())
+    .child("_"+partyId.toString())
+    .child("_"+organ.toString())
+    .child(createDate.toString());
+  return new Promise((resolve, reject) => {
+    ref.set(person, (error: any) => {
+      if (error) {
+        reject({
+          error: true,
+        });
+      } else {
+        resolve({
+          error: false,
         });
       }
     });

@@ -80,6 +80,7 @@ export type PersonTyp={
   partyId:number;
   podobi:number;
   organ:number;
+  status:number;
   name:string;
   contact_number:string
   fatherName:string;

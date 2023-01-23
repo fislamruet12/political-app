@@ -99,9 +99,22 @@ export type FormNavigation={
 
 
 export enum PARLAMENT_NAVIGATION{
-  PARLAMENT='PARLAMENT'
+  PARLAMENT='PARLAMENT',
 }
 
 export type ParlamentNavigation={
   [PARLAMENT_NAVIGATION.PARLAMENT]:undefined;
+  [PARLAMENT_NAVIGATION.EDITPARLAMENT]:undefined;
+  
+}
+
+export enum EDIT_NAVIGATION{
+ 
+  EDITPARLAMENT='EDITPARLEMENT',
+  EDITCOMMITY='EDITCOMMITY'
+}
+
+export type EditNavigation={
+[EDIT_NAVIGATION.EDITCOMMITY]:undefined;
+[EDIT_NAVIGATION.EDITPARLAMENT]:undefined  
 }
