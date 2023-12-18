@@ -14,6 +14,7 @@ import city from './city.png'
 import rise from './rise.png'
 import sunset from './sunset.png'
 import edit from './edit.png'
+import bribe from './bribe.png'
 export const icons = {
   assemble,
   dual,
@@ -26,5 +27,5 @@ export const icons = {
   print,
   city,
   rise,
-  sunset,edit
+  sunset,edit,bribe
 };

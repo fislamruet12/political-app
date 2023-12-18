@@ -16,3 +16,4 @@ export const firebaseConfig = {
 
 export const DbVersion="POLVERSION_1"
 export const ParVersion="PARVERSION_1"
+export const DudokVersion="DUDVERSION_1"

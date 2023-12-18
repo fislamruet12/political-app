@@ -27,7 +27,8 @@ import SingleMember from "./single";
 const ParlamenMembertList = (props: any) => {
   const dispatch = useDispatch()
   const member = useSelector((state: RootState) => state.currentMember.member);
-  const [text, setText] = useState("")
+  const [name, setText] = useState("")
+  const [seat, setText1] = useState("")
   const [show, setShow] = useState(false)
   const [data, setData] = useState([]);
   const [dataIntoProvider, setdataProvider] = useState<any>(
@@ -46,6 +47,7 @@ const ParlamenMembertList = (props: any) => {
     setdataProvider(dataProvider.cloneWithRows([]))
     if (zoneData[zone].length != 0) {
       setdataProvider(dataProvider.cloneWithRows(zoneData[zone]))
+      searchMember(name, seat)
       return
     }
     getParlamentInfo({
@@ -60,6 +62,7 @@ const ParlamenMembertList = (props: any) => {
           ...zoneData,
           [zone]: res.data
         })
+
       }
     });
   };
@@ -88,20 +91,22 @@ const ParlamenMembertList = (props: any) => {
       />
     );
   };
-  const searchMember = (text: string) => {
+  const searchMember = (name: string, seat: string) => {
 
-    if (text.length === 0) {
+    if (name.length === 0 && seat.length === 0) {
       Parmlament_memRef(null)
       return
     }
 
 
     let snZnData = [...zoneData[zone]] as MemberType[]
-    let DataArr = snZnData.filter((item) => item.parlament_seat === parseInt(text))
+    let DataArr = snZnData.filter((item) => (item.parlament_seat === parseInt(seat) && seat.length != 0) || (item.name.includes(name) === true && name.length != 0))
 
     setdataProvider(dataProvider.cloneWithRows(DataArr))
   }
-
+  useEffect(() => {
+    searchMember(name, seat)
+  }, [zoneData])
 
   return (
     <Box bg={"coolGray.600"} flex={1}>
@@ -119,7 +124,12 @@ const ParlamenMembertList = (props: any) => {
             mt={1}
             color="white"
             defaultValue={zone}
-            onValueChange={(itemValue) => setzone(itemValue)}
+            onValueChange={(itemValue) => {
+              setzone(itemValue)
+              // setShow(false)
+              // setText('')
+              // setText1('')
+            }}
           >
             {mainZone.slice(0, 2).map((value) => (
               <Select.Item
@@ -139,26 +149,50 @@ const ParlamenMembertList = (props: any) => {
         }
       </VStack>
       {show && zoneData[zone].length != 0 &&
-        <Box marginX={5} marginTop={1}>
+        <Box marginX={5} marginTop={1} flexDirection="row" justifyContent={'space-around'}>
 
-          <Input
-            bg={"gray.600"}
-            fontFamily={"Montserrat-Bold"}
-            placeholder="সংসদীয় আসন "
-            keyboardType="numeric"
-            value={text}
-            onChangeText={(text) => {
-              setText(text)
-              searchMember(text)
-            }}
-            InputRightElement={<Pressable onPress={() => {
-              setShow(!show)
-              setText('')
-              Parmlament_memRef(null)
-            }}>
-              <Text color={'red.500'} fontFamily="Montserrat-Bold" marginRight={5}>X</Text>
-            </Pressable>}
-          />
+          <Box>
+            <Input
+              bg={"gray.600"}
+              fontFamily={"Montserrat-Bold"}
+              placeholder="নাম"
+              keyboardType="default"
+              value={name}
+              width={width * .4}
+              onChangeText={(te) => {
+                setText(te)
+                searchMember(te, seat)
+              }}
+              InputRightElement={<Pressable onPress={() => {
+                // setShow(!show)
+                setText('')
+                searchMember('', seat)
+              }}>
+                <Text color={'red.500'} fontFamily="Montserrat-Bold" marginRight={5}>X</Text>
+              </Pressable>}
+            />
+          </Box>
+          <Box>
+            <Input
+              bg={"gray.600"}
+              fontFamily={"Montserrat-Bold"}
+              placeholder="সংসদীয় আসন "
+              keyboardType="number-pad"
+              width={width * .4}
+              value={seat}
+              onChangeText={(text) => {
+                setText1(text)
+                searchMember(name, text)
+              }}
+              InputRightElement={<Pressable onPress={() => {
+                // setShow(!show)
+                setText1('')
+                searchMember(name, '')
+              }}>
+                <Text color={'red.500'} fontFamily="Montserrat-Bold" marginRight={5}>X</Text>
+              </Pressable>}
+            />
+          </Box>
         </Box>
       }
 

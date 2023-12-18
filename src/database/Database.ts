@@ -4,7 +4,7 @@ import { AccessInData, MemberType, PersonTyp } from "../../typings/form-data";
 import { User } from "../../typings/structures";
 import { SignInData } from "../../typings/form-data";
 
-import { DbVersion, firebaseConfig, ParVersion } from "../config";
+import { DbVersion, DudokVersion, firebaseConfig, ParVersion } from "../config";
 import { encryptPassword } from "../utils/encrypt";
 
 export const Political = () => {
@@ -248,6 +248,37 @@ export const UpdateDistrictPartyInfo = (person: PersonTyp) => {
       } else {
         resolve({
           error: false,
+        });
+      }
+    });
+  });
+};
+
+
+
+export const getDistrictDudokInfo = (person: any) => {
+  Political();
+  const { id, division_id } = person;
+  let ref = database()
+    .ref(DudokVersion)
+    .child("dudok")
+    .child("_" + division_id.toString())
+    .child("_" + id.toString());
+
+  return new Promise((resolve, reject) => {
+    ref.once("value", (snapshot) => {
+      if (snapshot.exists()) {
+        // console.log('exists ',snapshot.val())
+        resolve({
+          error: false,
+          msg: "Successfully get data",
+          data: snapshot.toJSON(),
+        });
+      } else {
+        resolve({
+          error: true,
+          msg: "Data is not found",
+          data: null,
         });
       }
     });

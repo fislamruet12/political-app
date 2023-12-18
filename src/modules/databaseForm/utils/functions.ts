@@ -26,6 +26,7 @@ export const partyObjToArr = (info: any) => {
   arr.sort((a, b) => {
     return a.podobi - b.podobi
   })
+  
   return arr
 }
 
@@ -34,7 +35,7 @@ export const queryParOrg = (partyId: number) => {
   return Org;
 };
 export const queryParOrgSn = (partyId: number) => {
-  const Org = partyRelatedOrg.find((item) => item.id === parseInt(partyId));
+  const Org = partyRelatedOrg.find((item) => item.id ===partyId);
   return Org?.bn_name;
 };
 export const queryDivlist = (zoneId: string) => {

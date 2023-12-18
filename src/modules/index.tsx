@@ -2,7 +2,7 @@ import React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { APP_NAVIGATION, EDIT_NAVIGATION, PARLAMENT_NAVIGATION, ROOT_NAVIGATION } from "../../typings/navigation";
+import { APP_NAVIGATION, DUDOK_NAVIGATION, EDIT_NAVIGATION, PARLAMENT_NAVIGATION, ROOT_NAVIGATION } from "../../typings/navigation";
 
 import App from "./app";
 import Auth from "./auth";
@@ -17,6 +17,9 @@ import PartySingleScreen from "./app/district/partydetails/single";
 import ParlamenMembertList from "./app/parlament";
 import EditParlamentMem from "./databaseForm/edit/parlament";
 import EditComMem from "./databaseForm/edit/commity";
+import DudokMain from "./app/dudok";
+import DistrictScreen from "./app/dudok/district";
+import DudokDetailsScreen from "./app/dudok/district/details";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -79,7 +82,7 @@ const Navigation = () => {
         name={APP_NAVIGATION.DETAILS}
         component={PartySingleScreen}
       />
-       <Stack.Screen
+      <Stack.Screen
         options={{
           headerShown: true,
           title: "সংসদ সদস্য",
@@ -92,7 +95,7 @@ const Navigation = () => {
         component={ParlamenMembertList}
       />
 
-<Stack.Screen
+      <Stack.Screen
         options={{
           headerShown: true,
           title: "সংসদ সদস্য সম্পাদন",
@@ -115,6 +118,36 @@ const Navigation = () => {
         }}
         name={EDIT_NAVIGATION.EDITCOMMITY}
         component={EditComMem}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "দুদক",
+          headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 16 },
+          // headerRight: () => (
+          //   <RightIcon navigation={navigation} />
+          // ),
+        }}
+        name={ROOT_NAVIGATION.DUDOK}
+        component={DudokMain}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "DISTRICT LIST",
+          headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 16 },
+        }}
+        name={DUDOK_NAVIGATION.DUDOKDISTRICT}
+        component={DistrictScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: "Dudok details",
+          headerTitleStyle: { fontFamily: "Montserrat-Bold", fontSize: 16 },
+        }}
+        name={DUDOK_NAVIGATION.DUDOKDETAILS}
+        component={DudokDetailsScreen}
       />
     </Stack.Navigator>
   );

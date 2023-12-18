@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Box, Button, Text } from "native-base";
-import { height, width } from "../../../utils/handy";
 import { FlatList } from "react-native";
-import { APP_NAVIGATION } from "../../../../typings/navigation";
-
-import Loading from "../../../component/loading";
-import { districtInfo } from "../../databaseForm/utils/functions";
+import { districtInfo } from "../../../databaseForm/utils/functions";
+import { height, width } from "../../../../utils/handy";
+import Loading from "../../../../component/loading";
+import { DUDOK_NAVIGATION } from "../../../../../typings/navigation";
 
 const div = (id: string) => {
   return id === "9" ? " " : " বিভাগ";
 };
-const DashBoardScreen = (props: any) => {
+const DistrictScreen = (props: any) => {
   const divInfo = props.route.params;
   const [loading, setLoading] = useState(false);
   props.navigation.setOptions({
@@ -67,7 +66,7 @@ const DashBoardScreen = (props: any) => {
                 alignSelf={"center"}
                 bg={"coolGray.600"}
                 onPress={() =>
-                  props.navigation.navigate(APP_NAVIGATION.PARTY, dinfo)
+                  props.navigation.navigate(DUDOK_NAVIGATION.DUDOKDETAILS, dinfo)
                 }
                 _text={{
                   fontFamily: "Montserrat-Bold",
@@ -76,7 +75,7 @@ const DashBoardScreen = (props: any) => {
                 }}
                 borderTopRightRadius={"lg"}
               >
-                পার্টি সমূহ
+                দুদক কমিটি
               </Button>
             </Box>
           </Box>
@@ -100,4 +99,4 @@ const DashBoardScreen = (props: any) => {
   );
 };
 
-export default DashBoardScreen;
+export default DistrictScreen;

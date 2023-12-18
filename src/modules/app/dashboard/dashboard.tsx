@@ -62,6 +62,7 @@ const LandingScreen = (props: any) => {
     );
 
   return (
+    
     <Box
       flex={1}
       justifyContent="center"
@@ -107,6 +108,25 @@ const LandingScreen = (props: any) => {
 
             <Text color={"white"} fontFamily="Montserrat-Bold" fontSize={16}>
               সংসদ সদস্য
+            </Text>
+          </Center>
+        </Pressable>
+        <Pressable
+          marginTop={5}
+          margin={1}
+          onPress={() => Login(ROOT_NAVIGATION.DUDOK, {})}
+        >
+          <Center
+            height={40}
+            width={40}
+            rounded="md"
+            shadow={3}
+            bg={"coolGray.700"} 
+          >
+            <Image source={icons.bribe} style={{ width: 40, height: 40 }} />
+
+            <Text color={"white"} fontFamily="Montserrat-Bold" fontSize={16}>
+              দুদক
             </Text>
           </Center>
         </Pressable>

@@ -6,7 +6,8 @@ export enum ROOT_NAVIGATION {
   AUTH = 'AUTH',
   FORM='FORM',
   DRAWER='DRAWER',
-  ROOT='ROOT'
+  ROOT='ROOT',
+  DUDOK='DUDOK'
 }
 
 export type RootNavigationParams = {
@@ -104,7 +105,7 @@ export enum PARLAMENT_NAVIGATION{
 
 export type ParlamentNavigation={
   [PARLAMENT_NAVIGATION.PARLAMENT]:undefined;
-  [PARLAMENT_NAVIGATION.EDITPARLAMENT]:undefined;
+ 
   
 }
 
@@ -117,4 +118,15 @@ export enum EDIT_NAVIGATION{
 export type EditNavigation={
 [EDIT_NAVIGATION.EDITCOMMITY]:undefined;
 [EDIT_NAVIGATION.EDITPARLAMENT]:undefined  
+}
+
+export enum DUDOK_NAVIGATION{
+  DUDOKHOME='DUDOKHOME',
+  DUDOKDISTRICT='DUDOKDISTRICT',
+  DUDOKDETAILS='DUDOKDETAILS'
+}
+export type DudokNavigationParams={
+  [DUDOK_NAVIGATION.DUDOKHOME]:undefined;
+  [DUDOK_NAVIGATION.DUDOKDISTRICT]:undefined;
+  [DUDOK_NAVIGATION.DUDOKDETAILS]:undefined;
 }
